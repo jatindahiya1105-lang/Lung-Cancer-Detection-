@@ -1,4 +1,4 @@
-git add lung_cancer_cnn_model.keras
+
 import streamlit as st
 import numpy as np
 import tensorflow as tf
