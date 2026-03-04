@@ -43,7 +43,7 @@ st.set_page_config(
 )
 
 st.title("🫁 AI-Based Lung Cancer Detection System")
-st.progress(float(prediction))
+
 st.write(
 """
 Upload a CT scan image to check whether the model detects signs of lung cancer.
@@ -80,6 +80,7 @@ if uploaded_file is not None:
 # -----------------------------
 # Disclaimer
 # -----------------------------
+st.progress(float(prediction))
 st.markdown("---")
 st.warning(
 """
