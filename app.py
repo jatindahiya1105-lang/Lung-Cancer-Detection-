@@ -1,4 +1,4 @@
-
+from Lung_Cancer_Detection_Model import lung_cancer_cnn_model.keras
 import streamlit as st
 import numpy as np
 import tensorflow as tf
