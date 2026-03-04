@@ -10,7 +10,7 @@ from PIL import Image
 # -----------------------------
 @st.cache_resource
 def load_trained_model():
-    model = load_model("lung_cancer_cnn_model.keras")
+    model = load_model("lung_cancer_cnn_model.keras", compile=False)
     return model
 
 model = load_trained_model()
