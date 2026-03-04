@@ -1,5 +1,4 @@
 
-
 import streamlit as st
 import numpy as np
 import tensorflow as tf
@@ -90,5 +89,3 @@ It should **not be used for real medical diagnosis**.
 """
 )
 
-git commit -m "Fix TensorFlow dependency"
-git push
