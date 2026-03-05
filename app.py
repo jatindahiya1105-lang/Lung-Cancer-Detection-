@@ -83,10 +83,12 @@ if uploaded_file is not None:
     st.subheader("Prediction Result")
 
     if prediction > 0.5:
+        confidence = prediction
         st.error(f"⚠️ Cancer Detected\n\nConfidence: {prediction:.2f}")
     else:
+        confidence = 1 - prediction
         st.success(f"✅ Normal\n\nConfidence: {1 - prediction:.2f}")
-    confidence = prediction if prediction > 0.5 else 1 - prediction
+        
     st.progress(float(confidence))
 
 
