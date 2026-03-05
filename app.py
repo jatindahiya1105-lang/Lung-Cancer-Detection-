@@ -96,7 +96,7 @@ if uploaded_file is not None:
     st.subheader("Prediction Result")
 
     if result == "cancer":
-    st.error(f"⚠️ Cancer Detected (Confidence: {confidence:.2f})")
+        st.error(f"⚠️ Cancer Detected (Confidence: {confidence:.2f})")
     else:
         st.success(f"✅ Normal (Confidence: {confidence:.2f})")
 
