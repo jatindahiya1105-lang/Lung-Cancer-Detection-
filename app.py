@@ -72,12 +72,14 @@ uploaded_file = st.file_uploader(
 # -----------------------------
 if uploaded_file is not None:
 
-    image = Image.open(uploaded_file).convert("L")
+    image = Image.open(uploaded_file)
 
     st.image(image, caption="Uploaded CT Scan", use_container_width=True)
 
     processed_img = preprocess_image(image)
 
+    st.write("Input shape:", processed_img.shape)
+    
     prediction = model.predict(processed_img)[0][0]
 
     st.subheader("Prediction Result")
