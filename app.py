@@ -100,7 +100,7 @@ if uploaded_file is not None:
     else:
         st.success(f"✅ Normal (Confidence: {confidence:.2f})")
 
-    st.progress(confidence)
+    
 
 
 # -----------------------------
