@@ -34,9 +34,12 @@ def preprocess_image(image):
     img = image.resize((224, 224))
     img = np.array(img)
 
-    # Convert grayscale to RGB if needed
+    # If grayscale → convert to 3 channels
     if len(img.shape) == 2:
-        img = np.stack((img,)*3, axis=-1)
+        img = np.stack([img, img, img], axis=-1)
+    # If RGBA → remove alpha channel
+    if img.shape[-1] == 4:
+        img = img[:, :, :3]
 
     img = img / 255.0
     img = np.expand_dims(img, axis=0)
