@@ -86,12 +86,12 @@ if uploaded_file is not None:
         st.error(f"⚠️ Cancer Detected\n\nConfidence: {prediction:.2f}")
     else:
         st.success(f"✅ Normal\n\nConfidence: {1 - prediction:.2f}")
+    st.progress(float(prediction))
 
 
 # -----------------------------
 # Disclaimer
 # -----------------------------
-st.progress(float(prediction))
 st.markdown("---")
 st.warning(
 """
