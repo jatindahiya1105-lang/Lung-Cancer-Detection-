@@ -31,7 +31,7 @@ model = load_trained_model()
 # -----------------------------
 def preprocess_image(image):
 
-    img = image.resize((224, 224))
+    img = image.resize((244, 244))
     img = np.array(img)
 
     # If grayscale → convert to 3 channels
@@ -83,18 +83,24 @@ if uploaded_file is not None:
 
     st.write("Input shape:", processed_img.shape)
     
-    prediction = model.predict(processed_img)[0][0]
-
+    pred = model.predict(processed_img)
+    
+    predicted_class = np.argmax(pred, axis=1)[0]
+    
+    confidence = np.max(pred)
+    
+    classes = ["cancer", "normal"]
+    
+    result = classes[predicted_class]
+    
     st.subheader("Prediction Result")
 
-    if prediction > 0.5:
-        confidence = prediction
-        st.error(f"⚠️ Cancer Detected\n\nConfidence: {prediction:.2f}")
+    if result == "cancer":
+    st.error(f"⚠️ Cancer Detected (Confidence: {confidence:.2f})")
     else:
-        confidence = 1 - prediction
-        st.success(f"✅ Normal\n\nConfidence: {1 - prediction:.2f}")
-        
-    st.progress(float(confidence))
+        st.success(f"✅ Normal (Confidence: {confidence:.2f})")
+
+    st.progress(confidence)
 
 
 # -----------------------------
