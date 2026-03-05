@@ -1,4 +1,5 @@
-
+import os
+import gdown
 import streamlit as st
 import numpy as np
 import tensorflow as tf
@@ -8,8 +9,18 @@ from PIL import Image
 # -----------------------------
 # Load trained model
 # -----------------------------
+MODEL_PATH = "lung_cancer_cnn_model.keras"
+FILE_ID = "18mcbs6lqFKA23kDIZyk_8R-hwhahx-Vv"
+
+
+
 @st.cache_resource
 def load_trained_model():
+    # Download model if it does not exist
+    if not os.path.exists(MODEL_PATH):
+        url = f"https://drive.google.com/uc?id={FILE_ID}"
+        gdown.download(url, MODEL_PATH, quiet=False)
+    
     model = load_model("lung_cancer_cnn_model.keras", compile=False)
     return model
 
