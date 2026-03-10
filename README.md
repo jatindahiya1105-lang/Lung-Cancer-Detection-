@@ -246,4 +246,7 @@ Jatin Dahiya
 
 B.Tech Biotechnology
 
+IBM PBEL - AI BATCH 8
+
+
 Interested in AI in Healthcare, Bioinformatics, and Medical Imaging.
